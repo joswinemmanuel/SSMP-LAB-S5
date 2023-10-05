@@ -1,0 +1,5 @@
+LDA
+STA
+LDCH
+STCH
+END
