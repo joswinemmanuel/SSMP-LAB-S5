@@ -1,0 +1,39 @@
+CODE SEGMENT
+ASSUME CS: CODE
+START:
+MOV AH, 0000H
+MOV SI, 3000H
+MOV AL, [SI]
+INC SI
+MOV BL, [SI]
+ADD AL, BL
+INC SI
+MOV [SI], AL
+JC L1
+INC SI
+MOV [SI], AH
+INT 3
+L1:
+INC SI
+INC AH
+MOV [SI], AH
+INT 3
+CODE ENDS
+END START
+
+/*
+MOUNT C C:/8086
+C:
+EDIT
+( Now type the program )
+MASM <File name.ASM>
+( Enter, Enter, Enter )
+LINK <File name.OBJ>
+( Enter, Enter, Enter )
+DEBUG <File name.EXE>
+G=0000
+E 3000
+12 11
+G=0000 ( Sum in AX ) 
+D 3002,, 3003
+*/
