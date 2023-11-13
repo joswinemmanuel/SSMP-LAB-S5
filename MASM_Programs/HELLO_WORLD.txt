@@ -1,0 +1,34 @@
+ASSUME CS:CODE,DS:DATA
+DATA SEGMENT
+MSG DB 'HELLO WORLD$'
+MSG2 DB 0AH,'blue pill or red pill$'
+DATA ENDS
+CODE SEGMENT
+START:  MOV AX,DATA
+	MOV DS,AX
+	MOV DX,OFFSET MSG
+	MOV AH,09H
+	INT 21H
+	MOV DX,OFFSET MSG2
+	MOV AH,09H
+	INT 21H
+	MOV AH,4CH
+	INT 21H
+	CODE ENDS
+END START
+
+/*
+MOUNT C C:/8086
+C:
+EDIT
+( Now type the above program )
+MASM HELLO_WORLD.ASM
+( Enter, Enter, Enter )
+LINK HELLO_WORLD.OBJ
+( Enter, Enter, Enter )
+DEBUG HELLO_WORLD.EXE
+G=0000
+
+Output : HELLO WORLD
+         blue pill or red pill
+*/
