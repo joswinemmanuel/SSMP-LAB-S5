@@ -1,4 +1,0 @@
-LDA 
-STA 
-LDCH 
-STCH 
